@@ -3,7 +3,6 @@ import Image from "next/image";
 import TodaysBanglaDate from "../TodaysBanglaDate";
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { Button } from "@heroui/react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +47,7 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}>
-              {/* <span className="sr-only text-black">Menu</span> */}
+              <span className="sr-only">Menu</span>
               <svg
                 className="h-6 w-6"
                 fill="none"
