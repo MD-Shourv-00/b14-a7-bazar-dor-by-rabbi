@@ -11,9 +11,15 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { signIn } from "@/lib/auth-client";
+import { signIn, useSession } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 const SignInPage = () => {
+  const {data:session} = useSession();
+  
+    if(session?.user){
+      redirect("/")
+    }
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
   ) => {

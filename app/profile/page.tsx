@@ -1,11 +1,16 @@
 "use client";
-import { signOut, updateUser, useSession } from "@/lib/auth-client";
+import {
+  signOut,
+  updateUser,
+  useSession,
+} from "@/lib/auth-client";
 import {
   FieldError,
   Input,
   Label,
   TextField,
 } from "@heroui/react";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { FiLogOut } from "react-icons/fi";
 
@@ -26,12 +31,11 @@ const ProfilePage = () => {
   }
 
   const handleSignOut = async () => {
-   const {data, error} = await signOut();
+    const { data, error } = await signOut();
     console.log("sign-out data", data);
     console.log("sign-out error", error);
 
-    redirect('/')
-
+    redirect("/");
   };
 
   return (
@@ -50,7 +54,14 @@ const ProfilePage = () => {
         <div className="mb-5 flex items-center justify-between rounded-xl border border-[#e2eae3] bg-white/80 p-5">
           <div className="flex items-center gap-3">
             {/* image space */}
-            <div className="relative h-14 w-16 overflow-hidden rounded-xl bg-gray-100"></div>
+            <div className="relative h-14 w-16 overflow-hidden rounded-xl bg-gray-100">
+              <Image
+                src={session?.user.image as string}
+                alt="profile image"
+                fill
+                className="object-cover"
+              />
+            </div>
             {/* name and email */}
             <div>
               <h2 className="text-base font-semibold">

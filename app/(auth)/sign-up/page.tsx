@@ -12,10 +12,16 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { signUp } from "@/lib/auth-client";
+import { signUp, useSession } from "@/lib/auth-client";
+import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
   const [password, setPassword] = useState("");
+  const {data:session} = useSession();
+
+  if(session?.user){
+    redirect("/")
+  }
 
   async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>,
@@ -31,6 +37,7 @@ const SignUpPage = () => {
       name: data.name as string,
       email: data.email as string,
       password: data.password as string,
+      image: data.image as string,
       callbackURL: "/",
     });
 
@@ -68,6 +75,20 @@ const SignUpPage = () => {
               name="name"
               placeholder="যেমন: রহিম উদ্দিন"
               autoComplete="name"
+              className="h-[50px] w-full rounded-xl border border-[#d6e0d8] bg-transparent px-4 outline-none focus:border-[#008c45]"
+            />
+            <FieldError className="text-sm text-red-600" />
+          </TextField>
+          <TextField
+            name="image"
+            isRequired
+            className="flex flex-col gap-2">
+            <Label className="font-medium text-[#202820]">
+              প্রোফাইল ছবি
+            </Label>
+            <Input
+              name="image"
+              placeholder="https://example.com/image"
               className="h-[50px] w-full rounded-xl border border-[#d6e0d8] bg-transparent px-4 outline-none focus:border-[#008c45]"
             />
             <FieldError className="text-sm text-red-600" />

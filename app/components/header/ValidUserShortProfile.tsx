@@ -1,16 +1,15 @@
 "use client";
-import { signOut } from "@/lib/auth-client";
+import { signOut, useSession } from "@/lib/auth-client";
 import { Button, Dropdown, Label } from "@heroui/react";
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { BiDownArrowAlt } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 
-const ValidUserShortProfile = ({
-  userName,
-}: {
-  userName: string | undefined;
-}) => {
+const ValidUserShortProfile = () => {
+    const {data:session} = useSession();
+
   const handleSignOut = async () => {
     await signOut();
     redirect('/')
@@ -20,7 +19,7 @@ const ValidUserShortProfile = ({
       <Dropdown>
         <Button className="text-black bg-white hover:text-green-500 font-bold text-[18px] max-md:text-[15px]">
           <BiDownArrowAlt className="text-green-500" />
-          {userName}
+          {session?.user.name}
         </Button>
         <Dropdown.Popover>
           <Dropdown.Menu
@@ -51,7 +50,14 @@ const ValidUserShortProfile = ({
         </Dropdown.Popover>
       </Dropdown>
 
-      <div className="relative h-14 w-16 overflow-hidden rounded-xl bg-gray-100"></div>
+      <div className="relative h-14 w-16 overflow-hidden rounded-xl bg-gray-100">
+        <Image
+          src={session?.user.image as string}
+          alt="profile image"
+          fill
+          className="object-cover"
+        />
+      </div>
     </div>
   );
 };
