@@ -1,6 +1,7 @@
 import MarqueeText from "react-marquee-text";
 import { ProductPriceData } from "../../type/type";
 import MarqueeItems from "./MarqueeItems";
+import { Suspense } from "react";
 
 export async function allProductsfetching(): Promise<
   ProductPriceData[]
@@ -29,9 +30,9 @@ const Marquee = async () => {
     <MarqueeText
       direction="right"
       duration={10}
-      className="my-2"
+      className="my-2 "
       pauseOnHover={true}>
-      <div className="flex items-center gap-2 text-[16px]">
+      <div className="bg-white flex items-center gap-2 text-[16px]">
         {allProductData.map((productData) => (
           <MarqueeItems
             key={productData.id}

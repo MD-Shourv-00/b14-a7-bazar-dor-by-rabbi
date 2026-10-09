@@ -71,15 +71,15 @@ const Header = () => {
               </svg>
             </button>
 
-            <div className="max-md:hidden flex gap-7 items-center">
-              <Link href="/sing-in">
-                <button className="text-[16px] font-semibold text-[#202020] transition hover:text-[#008C45]">
+            <div className=" max-md:hidden flex gap-7 items-center">
+              <Link href="/sign-in">
+                <button className="cursor-pointer text-[16px] font-semibold text-[#202020] transition hover:text-[#008C45]">
                   সাইন ইন
                 </button>
               </Link>
 
               <Link href="/sign-up">
-                <button className="rounded-[10px] bg-[#008C45] px-6 py-3 text-[16px] font-semibold text-white shadow-[0_3px_5px_rgba(0,0,0,0.25)] transition hover:bg-[#007a3d]">
+                <button className="cursor-pointer rounded-[10px] bg-[#008C45] px-6 py-3 text-[16px] font-semibold text-white shadow-[0_3px_5px_rgba(0,0,0,0.25)] transition hover:bg-[#007a3d]">
                   সাইন আপ
                 </button>
               </Link>
@@ -90,10 +90,10 @@ const Header = () => {
 
       {isMenuOpen && (
         <div className="border-y container mx-auto border-separator md:hidden">
-          <ul className="flex flex-col items-end gap-2 p-4">
+          <ul className="c flex flex-col items-end gap-2 p-4">
             <li>
-              <Link href="/sing-in" className="block py-2">
-                <button className="text-[16px] font-semibold text-[#202020] transition hover:text-[#008C45]">
+              <Link href="/sign-in" className="block py-2">
+                <button className="cursor-pointer text-[16px] font-semibold text-[#202020] transition hover:text-[#008C45]">
                   সাইন ইন
                 </button>
               </Link>
@@ -102,7 +102,7 @@ const Header = () => {
               <Link
                 href="/sign-up"
                 className="block py-2 font-medium text-accent">
-                <button className="rounded-[10px] bg-[#008C45] px-6 py-3 text-[16px] font-semibold text-white shadow-[0_3px_5px_rgba(0,0,0,0.25)] transition hover:bg-[#007a3d]">
+                <button className="cursor-pointer rounded-[10px] bg-[#008C45] px-6 py-3 text-[16px] font-semibold text-white shadow-[0_3px_5px_rgba(0,0,0,0.25)] transition hover:bg-[#007a3d]">
                   সাইন আপ
                 </button>
               </Link>

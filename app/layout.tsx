@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="en"
       data-theme="light"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-screen w-full overflow-x-hidden">
+      <body className="bg-white min-h-screen w-full overflow-x-hidden">
         <Header />
         <Navbar />
         <Marquee />
