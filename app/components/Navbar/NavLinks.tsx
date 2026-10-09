@@ -9,7 +9,7 @@ const NavLinks =({
   category: CategoryType;
 }) => {
   const pathname = usePathname().slice(1)
-  console.log('pathname', pathname , category.slug)
+  // console.log('pathname', pathname , category.slug)
 
   return (
     <div>

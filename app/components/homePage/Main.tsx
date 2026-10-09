@@ -13,7 +13,7 @@ const MainSectionOfHomePage = async () => {
   );
 
   return (
-    <main>
+    <main id="product-section">
       <div className="container mx-auto max-md:mx-2">
         <div className="my-8">
           <h2 className="font-bold text-2xl">

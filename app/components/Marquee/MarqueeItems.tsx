@@ -1,5 +1,6 @@
 // "use client"
 import { ProductPriceData } from "@/app/type/type";
+import Link from "next/link";
 import {
   RiArrowDownFill,
   RiArrowUpSFill,
@@ -15,6 +16,7 @@ const MarqueeItems = ({
     nameBn,
     today,
     unit,
+    id,
     change: { dir, pct },
   } = productData;
 
@@ -27,21 +29,26 @@ const MarqueeItems = ({
     direction = "-";
   }
   return (
-    <div key={productData.id}>
+    <Link href={`${id}`}>
       {" "}
-      {/* Rice Icon */}
-      <span className="text-[18px] ml-7">🍚</span>
-      {/* Product Name & Price */}
-      <span className="text-[#303833] mx-2">{nameBn}</span>
-      <span className="text-[#303833] mr-2">
-        {`${today} Taka/${unit}`}
-      </span>
-      {/* Percentage */}
-      <span
-        className={`font-medium ${dir === "up" ? "text-[#009447]" : dir === "down" ? "text-red-500" : dir === "flat" ? "text-gray-500" : ""}  `}>
-        {`${direction} ${pct} %`}
-      </span>
-    </div>
+      <div key={productData.id}>
+        {" "}
+        {/* Rice Icon */}
+        <span className="text-[18px] ml-7">🍚</span>
+        {/* Product Name & Price */}
+        <span className="text-[#303833] mx-2">
+          {nameBn}
+        </span>
+        <span className="text-[#303833] mr-2">
+          {`${today.toLocaleString("bn-bd")} টাকা/${unit}`}
+        </span>
+        {/* Percentage */}
+        <span
+          className={`font-medium ${dir === "up" ? "text-[#009447]" : dir === "down" ? "text-red-500" : dir === "flat" ? "text-gray-500" : ""}  `}>
+          {`${direction} ${pct.toLocaleString("bn-bd")} %`}
+        </span>
+      </div>
+    </Link>
   );
 };
 

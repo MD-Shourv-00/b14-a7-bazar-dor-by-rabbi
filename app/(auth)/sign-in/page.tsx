@@ -11,6 +11,7 @@ import {
   FieldError,
   Description,
 } from "@heroui/react";
+import { Icon } from "@iconify/react";
 
 const SignInPage = () => {
   function handleSubmit(
@@ -103,21 +104,14 @@ const SignInPage = () => {
           <div className="h-[2px] flex-1 bg-[#e1e7e2]" />
         </div>
 
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <Button
-            type="button"
-            variant="bordered"
-            className="h-[50px] border-[#dce5df] font-semibold">
-            <FaGoogle className="text-[#4285f4]" />
+        <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1 max-sm:justify-center max-sm:items-center ">
+          <Button className="w-full" variant="tertiary">
+            <Icon icon="devicon:google" />
             Google দিয়ে চালিয়ে যান
           </Button>
-
-          <Button
-            type="button"
-            variant="bordered"
-            className="h-[50px] border-[#dce5df] font-semibold">
-            <FaGithub size={19} />
-            GitHub দিয়ে চালিয়ে যান
+          <Button className="w-full" variant="tertiary">
+            <Icon icon="mdi:github" />
+            Github দিয়ে
           </Button>
         </div>
 

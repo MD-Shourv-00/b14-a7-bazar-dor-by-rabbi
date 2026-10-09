@@ -34,4 +34,5 @@ export interface ProductPriceData {
     lastMonth: number;
     change: PriceChange;
     markets: MarketPrice[];
+    error?: string;
 }
