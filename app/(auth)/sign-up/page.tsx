@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FaGoogle, FaGithub } from "react-icons/fa";
 import {
   Button,
   Form,
@@ -13,11 +12,12 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { signUp } from "@/lib/auth-client";
 
 const SignUpPage = () => {
   const [password, setPassword] = useState("");
 
-  function handleSubmit(
+  async function handleSubmit(
     e: React.FormEvent<HTMLFormElement>,
   ) {
     e.preventDefault();
@@ -25,7 +25,17 @@ const SignUpPage = () => {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    console.log("Validated form data:", data);
+    console.log("sign-up data:", data);
+
+    const { data: resData, error } = await signUp.email({
+      name: data.name as string,
+      email: data.email as string,
+      password: data.password as string,
+      callbackURL: "/",
+    });
+
+    console.log("response in sign-up", resData);
+    console.log("Error in sign-up", error);
   }
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-8 sm:py-10">
@@ -81,30 +91,6 @@ const SignUpPage = () => {
               type="email"
               placeholder="you@example.com"
               autoComplete="email"
-              className="h-[50px] w-full rounded-xl border border-[#d6e0d8] bg-transparent px-4 outline-none focus:border-[#008c45]"
-            />
-            <FieldError className="text-sm text-red-600" />
-          </TextField>
-
-          <TextField
-            name="password"
-            isRequired
-            validate={(value) =>
-              value.length < 8
-                ? "পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে।"
-                : true
-            }
-            className="flex flex-col gap-2">
-            <Label className="font-medium text-[#202820]">
-              পাসওয়ার্ড
-            </Label>
-            <Input
-              name="password"
-              type="password"
-              placeholder="কমপক্ষে ৮ অক্ষর"
-              autoComplete="new-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               className="h-[50px] w-full rounded-xl border border-[#d6e0d8] bg-transparent px-4 outline-none focus:border-[#008c45]"
             />
             <FieldError className="text-sm text-red-600" />

@@ -1,7 +1,6 @@
-"use client";
+"use client"
 
 import Link from "next/link";
-import { FaGoogle, FaGithub } from "react-icons/fa";
 import {
   Button,
   Form,
@@ -12,18 +11,28 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
+import { signIn } from "@/lib/auth-client";
 
 const SignInPage = () => {
-  function handleSubmit(
+  const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>,
-  ) {
+  ) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    console.log("Validated sign-in form:", data);
-  }
+    console.log("sign-in data:", data);
+
+    const { data: resData, error } = await signIn.email({
+      email: data.email as string,
+      password: data.password as string,
+    });
+
+    console.log("response in sign-in", resData);
+    console.log("Error in sign-in", error);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-10 sm:py-12">
       <h1 className="text-3xl font-bold text-[#202820]">
