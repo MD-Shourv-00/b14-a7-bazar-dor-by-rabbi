@@ -40,13 +40,22 @@ const SignInPage = () => {
   };
 
   // sign in with google
-    const handleGoogleSignIn = async () => {
-      const data = await signIn.social({
-        provider: 'google'
-      })
-  
-      console.log('data for google sign in', data)
-    }
+  const handleGoogleSignIn = async () => {
+    const data = await signIn.social({
+      provider: "google",
+    });
+
+    console.log("data for google sign in", data);
+  };
+
+  //sign in with github
+  const handleGithubSignIn = async () => {
+    const data = await signIn.social({
+      provider: "github",
+    });
+
+    console.log("data of github", data);
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-10 sm:py-12">
@@ -136,7 +145,10 @@ const SignInPage = () => {
             <Icon icon="devicon:google" />
             Google দিয়ে চালিয়ে যান
           </Button>
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={handleGithubSignIn}
+            className="w-full"
+            variant="tertiary">
             <Icon icon="mdi:github" />
             Github দিয়ে
           </Button>

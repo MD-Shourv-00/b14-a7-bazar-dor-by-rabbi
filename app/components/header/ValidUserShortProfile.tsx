@@ -52,7 +52,9 @@ const ValidUserShortProfile = () => {
 
       <div className="relative h-14 w-16 overflow-hidden rounded-xl bg-gray-100">
         <Image
-          src={session?.user.image as string}
+          src={
+            (session?.user.image as string) || "/tree.jpg"
+          }
           alt="profile image"
           fill
           className="object-cover"

@@ -11,7 +11,11 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { signIn, signUp, useSession } from "@/app/lib/auth-client";
+import {
+  signIn,
+  signUp,
+  useSession,
+} from "@/app/lib/auth-client";
 import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
@@ -46,11 +50,20 @@ const SignUpPage = () => {
   // sign in with google
   const handleGoogleSignIn = async () => {
     const data = await signIn.social({
-      provider: 'google'
-    })
+      provider: "google",
+    });
 
-    console.log('data for google sign in', data)
-  }
+    console.log("data for google sign in", data);
+  };
+
+  //sign in with github
+  const handleGithubSignIn = async () => {
+    const data = await signIn.social({
+      provider: "github",
+    });
+
+    console.log("data of github", data)
+  };
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-8 sm:py-10">
       <h1 className="text-3xl font-bold text-[#202820]">
@@ -167,11 +180,17 @@ const SignUpPage = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1 max-sm:justify-center max-sm:items-center ">
-          <Button onClick={handleGoogleSignIn} className="w-full" variant="tertiary">
+          <Button
+            onClick={handleGoogleSignIn}
+            className="w-full"
+            variant="tertiary">
             <Icon icon="devicon:google" />
             Google দিয়ে চালিয়ে যান
           </Button>
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={handleGithubSignIn}
+            className="w-full"
+            variant="tertiary">
             <Icon icon="mdi:github" />
             Github দিয়ে
           </Button>
