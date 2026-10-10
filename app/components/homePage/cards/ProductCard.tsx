@@ -18,7 +18,7 @@ const ProductCard = ({product}: { product : ProductPriceData}) => {
   return (
     <Link href={`${id}`}>
       {" "}
-      <div className="w-full max-w-[454px] rounded-[20px] border border-[#dce5df] bg-[#fbfdfc] p-5 max-sm:mx-2">
+      <div className="w-full max-w-[454px] rounded-[20px] border border-[#dce5df] bg-[#fbfdfc] p-5 max-sm:mx-2 hover:border-green-700 delay-200 transition ease-in-out">
         {/* Product Info */}
         <div className="flex items-center gap-4">
           {/* Product Image */}
