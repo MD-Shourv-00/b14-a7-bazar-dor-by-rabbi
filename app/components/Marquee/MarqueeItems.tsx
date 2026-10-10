@@ -1,11 +1,6 @@
 // "use client"
 import { ProductPriceData } from "@/app/type/type";
 import Link from "next/link";
-import {
-  RiArrowDownFill,
-  RiArrowUpSFill,
-} from "react-icons/ri";
-import { TiMinus } from "react-icons/ti";
 
 const MarqueeItems = ({
   productData,

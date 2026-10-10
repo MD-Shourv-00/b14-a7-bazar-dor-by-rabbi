@@ -33,7 +33,7 @@ const SignUpPage = () => {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    console.log("sign-up data:", data);
+    // console.log("sign-up data:", data);
 
     const { data: resData, error } = await signUp.email({
       name: data.name as string,
@@ -62,7 +62,7 @@ const SignUpPage = () => {
       provider: "github",
     });
 
-    console.log("data of github", data)
+    console.log("data of github", data);
   };
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-8 sm:py-10">
