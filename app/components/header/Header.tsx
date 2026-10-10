@@ -11,8 +11,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session } = useSession();
 
-  const userName = session?.user.name;
-
   return (
     <div>
       <header className="border-b border-gray-100 bg-white">
@@ -48,7 +46,7 @@ const Header = () => {
 
           {/* sign in and sign up btn and profile */}
           {session?.user ? (
-            <ValidUserShortProfile userName={userName} />
+            <ValidUserShortProfile />
           ) : (
             <LoginAndSignIn
               isMenuOpen={isMenuOpen}
