@@ -3,7 +3,7 @@ import Image from "next/image";
 import TodaysBanglaDate from "../TodaysBanglaDate";
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useSession } from "@/lib/auth-client";
+import { useSession } from "@/app/lib/auth-client";
 import ValidUserShortProfile from "./ValidUserShortProfile";
 import LoginAndSignIn from "./LoginAndSignIn";
 

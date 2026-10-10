@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   Button,
@@ -12,15 +11,14 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { signUp, useSession } from "@/lib/auth-client";
+import { signUp, useSession } from "@/app/lib/auth-client";
 import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
-  const [password, setPassword] = useState("");
-  const {data:session} = useSession();
+  const { data: session } = useSession();
 
-  if(session?.user){
-    redirect("/")
+  if (session?.user) {
+    redirect("/");
   }
 
   async function handleSubmit(

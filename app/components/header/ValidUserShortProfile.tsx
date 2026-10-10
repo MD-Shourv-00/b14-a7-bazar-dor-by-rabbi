@@ -1,5 +1,5 @@
 "use client";
-import { signOut, useSession } from "@/lib/auth-client";
+import { signOut, useSession } from "@/app/lib/auth-client";
 import { Button, Dropdown, Label } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,11 +8,11 @@ import { BiDownArrowAlt } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 
 const ValidUserShortProfile = () => {
-    const {data:session} = useSession();
+  const { data: session } = useSession();
 
   const handleSignOut = async () => {
     await signOut();
-    redirect('/')
+    redirect("/");
   };
   return (
     <div className="flex gap-4 items-center max-md:flex-col-reverse max-md:gap-0.5 max-md:mt-4">

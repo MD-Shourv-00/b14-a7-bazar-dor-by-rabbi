@@ -3,7 +3,7 @@ import {
   signOut,
   updateUser,
   useSession,
-} from "@/lib/auth-client";
+} from "@/app/lib/auth-client";
 import {
   FieldError,
   Input,
@@ -108,7 +108,7 @@ const ProfilePage = () => {
             </TextField>
             <button
               type="submit"
-              className="w-full rounded-lg bg-[#008c45] py-2.5 text-sm font-semibold text-white shadow-[0_3px_4px_rgba(0,0,0,0.25)] transition hover:bg-[#007a3c]">
+              className="cursor-pointer w-full rounded-lg bg-[#008c45] py-2.5 text-sm font-semibold text-white shadow-[0_3px_4px_rgba(0,0,0,0.25)] transition hover:bg-[#007a3c]">
               আপডেট
             </button>
           </form>

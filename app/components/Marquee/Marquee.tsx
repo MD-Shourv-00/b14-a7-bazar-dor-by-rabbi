@@ -1,14 +1,13 @@
 import MarqueeText from "react-marquee-text";
 import { ProductPriceData } from "../../type/type";
 import MarqueeItems from "./MarqueeItems";
-import { Suspense } from "react";
 
 export async function allProductsfetching(): Promise<
   ProductPriceData[]
 > {
   try {
     const res = await fetch(
-      "https://api.abcz.workers.dev/api/bazardor/products",
+      "https://api.api-store.workers.dev/api/bazardor/products",
     );
 
     if (!res.ok) {

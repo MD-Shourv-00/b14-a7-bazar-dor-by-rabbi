@@ -6,10 +6,11 @@ const DetailsPage = async ({
 }: {
   params: Promise<{ productId: string }>;
 }) => {
+  
   const { productId } = await params;
 
   const res = await fetch(
-    `https://api.abcz.workers.dev/api/bazardor/products/${productId}`,
+    `https://api.api-store.workers.dev/api/bazardor/products/${productId}`,
   );
 
   const productData: ProductPriceData = await res.json();
@@ -75,8 +76,7 @@ const DetailsPage = async ({
   }
 
   return (
-    <section
-      className="min-h-screen bg-white px-5 py-6 text-[#303b34]">
+    <section className="min-h-screen bg-white px-5 py-6 text-[#303b34]">
       <div className="mx-auto container space-y-3.5">
         {/* product information card */}
         <div className="flex items-center justify-between rounded-xl border border-[#e3ebe4] bg-white p-3 max-sm:flex-col">
