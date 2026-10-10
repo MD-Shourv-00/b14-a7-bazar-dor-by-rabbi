@@ -11,7 +11,7 @@ import {
   Description,
 } from "@heroui/react";
 import { Icon } from "@iconify/react";
-import { signUp, useSession } from "@/app/lib/auth-client";
+import { signIn, signUp, useSession } from "@/app/lib/auth-client";
 import { redirect } from "next/navigation";
 
 const SignUpPage = () => {
@@ -41,6 +41,15 @@ const SignUpPage = () => {
 
     console.log("response in sign-up", resData);
     console.log("Error in sign-up", error);
+  }
+
+  // sign in with google
+  const handleGoogleSignIn = async () => {
+    const data = await signIn.social({
+      provider: 'google'
+    })
+
+    console.log('data for google sign in', data)
   }
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-8 sm:py-10">
@@ -158,7 +167,7 @@ const SignUpPage = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1 max-sm:justify-center max-sm:items-center ">
-          <Button className="w-full" variant="tertiary">
+          <Button onClick={handleGoogleSignIn} className="w-full" variant="tertiary">
             <Icon icon="devicon:google" />
             Google দিয়ে চালিয়ে যান
           </Button>

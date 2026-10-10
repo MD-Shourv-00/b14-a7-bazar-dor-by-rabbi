@@ -39,6 +39,15 @@ const SignInPage = () => {
     console.log("Error in sign-in", error);
   };
 
+  // sign in with google
+    const handleGoogleSignIn = async () => {
+      const data = await signIn.social({
+        provider: 'google'
+      })
+  
+      console.log('data for google sign in', data)
+    }
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-10 sm:py-12">
       <h1 className="text-3xl font-bold text-[#202820]">
@@ -120,7 +129,10 @@ const SignInPage = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-3 max-sm:grid-cols-1 max-sm:justify-center max-sm:items-center ">
-          <Button className="w-full" variant="tertiary">
+          <Button
+            onClick={handleGoogleSignIn}
+            className="w-full"
+            variant="tertiary">
             <Icon icon="devicon:google" />
             Google দিয়ে চালিয়ে যান
           </Button>
