@@ -24,7 +24,7 @@ const MarqueeItems = ({
     direction = "-";
   }
   return (
-    <Link href={`${id}`}>
+    <Link href={`/${id}`}>
       {" "}
       <div key={productData.id}>
         {" "}
