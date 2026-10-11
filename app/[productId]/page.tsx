@@ -6,7 +6,6 @@ const DetailsPage = async ({
 }: {
   params: Promise<{ productId: string }>;
 }) => {
-  
   const { productId } = await params;
 
   const res = await fetch(
@@ -113,9 +112,9 @@ const DetailsPage = async ({
             {/* parcentage */}
             <p
               className={`mt-1 text-xs font-semibold ${
-                change.dir === "up"
+                change.dir === "down"
                   ? "text-red-500"
-                  : change.dir === "down"
+                  : change.dir === "up"
                     ? "text-green-600"
                     : change.dir === "flat"
                       ? "text-gray-600"
