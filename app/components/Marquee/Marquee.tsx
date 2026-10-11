@@ -28,7 +28,7 @@ const Marquee = async () => {
   return (
     <MarqueeText
       direction="right"
-      duration={10}
+      duration={8}
       className="my-2 "
       pauseOnHover={true}>
       <div className="bg-white flex items-center gap-2 text-[16px]">

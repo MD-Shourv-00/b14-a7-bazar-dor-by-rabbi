@@ -39,7 +39,7 @@ const MarqueeItems = ({
         </span>
         {/* Percentage */}
         <span
-          className={`font-medium ${dir === "up" ? "text-[#009447]" : dir === "down" ? "text-red-500" : dir === "flat" ? "text-gray-500" : ""}  `}>
+          className={`font-medium ${dir === "down" ? "text-[#009447]" : dir === "up" ? "text-red-500" : dir === "flat" ? "text-gray-500" : ""}  `}>
           {`${direction} ${pct.toLocaleString("bn-bd")} %`}
         </span>
       </div>
