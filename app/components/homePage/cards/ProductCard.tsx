@@ -1,19 +1,29 @@
 import { ProductPriceData } from "@/app/type/type";
 import Link from "next/link";
 
-const ProductCard = ({product}: { product : ProductPriceData}) => {
+const ProductCard = ({
+  product,
+}: {
+  product: ProductPriceData;
+}) => {
+  const {
+    image,
+    nameBn,
+    unit,
+    today,
+    change: { dir, pct },
+    id,
+  } = product;
 
-    const {image, nameBn, unit, today, change:{dir, pct}, id} = product;
-
-    // direction selection
-      let direction;
-      if (dir === "up") {
-        direction = "▲";
-      } else if (dir === "down") {
-        direction = "▼";
-      } else if (dir === "flat") {
-        direction = "-";
-      }
+  // direction selection
+  let direction;
+  if (dir === "up") {
+    direction = "▲";
+  } else if (dir === "down") {
+    direction = "▼";
+  } else if (dir === "flat") {
+    direction = "-";
+  }
 
   return (
     <Link href={`/${id}`}>
@@ -53,7 +63,7 @@ const ProductCard = ({product}: { product : ProductPriceData}) => {
 
           {/* Price Change */}
           <div
-            className={`mb-1 flex items-center gap-1 rounded-full bg-[#f0f5f1] px-3 py-1.5 text-[14px] font-semibold ${dir === "down" ? "text-[#009447]" : dir === "up" ? "text-red-500" : dir === "flat" ? "text-gray-500" : ""}`}>
+            className={`mb-1 flex items-center gap-1 rounded-full bg-[#f0f5f1] px-3 py-1.5 text-[14px] font-semibold ${dir === "up" ? "text-[#009447]" : dir === "down" ? "text-red-500" : dir === "flat" ? "text-gray-500" : ""}`}>
             <span className="text-[12px]">{direction}</span>
             <span>{pct.toLocaleString("bn-bd") + "%"}</span>
           </div>
