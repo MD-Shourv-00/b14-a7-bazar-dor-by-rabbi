@@ -51,7 +51,7 @@ const ProfilePage = () => {
         </div>
 
         {/* Profile information */}
-        <div className="mb-5 flex items-center justify-between rounded-xl border border-[#e2eae3] bg-white/80 p-5">
+        <div className="mb-5 flex items-center justify-between rounded-xl border border-[#e2eae3] bg-white p-5 max-sm:flex-col gap-3">
           <div className="flex items-center gap-3">
             {/* image space */}
             <div className="relative h-14 w-16 overflow-hidden rounded-xl bg-gray-100">
@@ -78,7 +78,7 @@ const ProfilePage = () => {
           <button
             onClick={handleSignOut}
             type="button"
-            className="cursor-pointer flex items-center gap-1.5 rounded-lg border border-red-400 px-3 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50">
+            className="cursor-pointer flex items-center gap-1.5 rounded-lg border border-red-400 px-3 py-2 text-xs font-semibold text-red-500 transition hover:bg-red-50 max-sm:w-full max-sm:justify-center">
             <FiLogOut size={15} />
             সাইন আউট
           </button>
