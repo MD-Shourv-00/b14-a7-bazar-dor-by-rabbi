@@ -4,6 +4,7 @@ import { Button, Dropdown, Label } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 import { BiDownArrowAlt } from "react-icons/bi";
 import { FiLogOut } from "react-icons/fi";
 
@@ -11,7 +12,11 @@ const ValidUserShortProfile = () => {
   const { data: session } = useSession();
 
   const handleSignOut = async () => {
-    await signOut();
+  const { data, error } = await signOut();
+  console.log("sign-out data", data);
+  console.log("sign-out error", error);
+   if(data) toast.success("LOG OUT সফল হয়েছে");
+   if(!error) toast.success("LOG OUT ব্যর্থ হয়েছে");
     redirect("/");
   };
   return (

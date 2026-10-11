@@ -13,6 +13,7 @@ import {
 import { Icon } from "@iconify/react";
 import { signIn, useSession } from "@/app/lib/auth-client";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 const SignInPage = () => {
   const { data: session } = useSession();
@@ -37,24 +38,31 @@ const SignInPage = () => {
 
     console.log("response in sign-in", resData);
     console.log("Error in sign-in", error);
+
+    if (resData) toast.success("সাইন ইন সফল হয়েছে");
+    if (!error) toast.error("সাইন ইন ব্যর্থ হয়েছে");
   };
 
   // sign in with google
   const handleGoogleSignIn = async () => {
-    const data = await signIn.social({
+    const { data, error } = await signIn.social({
       provider: "google",
     });
 
     console.log("data for google sign in", data);
+    if (data) toast.success("সাইন ইন সফল হয়েছে");
+    if (!error) toast.error("সাইন ইন ব্যর্থ হয়েছে");
   };
 
   //sign in with github
   const handleGithubSignIn = async () => {
-    const data = await signIn.social({
+    const { data, error } = await signIn.social({
       provider: "github",
     });
 
     console.log("data of github", data);
+    if (data) toast.success("সাইন ইন সফল হয়েছে");
+    if (!error) toast.error("সাইন ইন ব্যর্থ হয়েছে");
   };
 
   return (

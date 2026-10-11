@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import Image from "next/image";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 import { FiLogOut } from "react-icons/fi";
 
 const ProfilePage = () => {
@@ -25,15 +26,20 @@ const ProfilePage = () => {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    await updateUser({
+    const { data: resData, error } = await updateUser({
       name: data.name as string,
     });
+
+    if (resData) toast.success("নাম পরিবর্তন সফল হয়েছে");
+    if (!error) toast.success("নাম পরিবর্তন ব্যর্থ হয়েছে");
   }
 
   const handleSignOut = async () => {
     const { data, error } = await signOut();
     console.log("sign-out data", data);
     console.log("sign-out error", error);
+    if (data) toast.success("LOG OUT সফল হয়েছে");
+    if (!error) toast.success("LOG OUT ব্যর্থ হয়েছে");
 
     redirect("/");
   };

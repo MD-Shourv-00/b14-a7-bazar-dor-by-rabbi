@@ -17,6 +17,7 @@ import {
   useSession,
 } from "@/app/lib/auth-client";
 import { redirect } from "next/navigation";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
   const { data: session } = useSession();
@@ -45,24 +46,32 @@ const SignUpPage = () => {
 
     console.log("response in sign-up", resData);
     console.log("Error in sign-up", error);
+
+    if (data) toast.success("নতুন অ্যাকাউন্ট তৈরি সফল হয়েছে");
+    if (!error) toast.error("নতুন অ্যাকাউন্ট তৈরি ব্যর্থ হয়েছে");
   }
 
   // sign in with google
   const handleGoogleSignIn = async () => {
-    const data = await signIn.social({
+    const {data, error} = await signIn.social({
       provider: "google",
     });
 
     console.log("data for google sign in", data);
+
+    if (data) toast.success("নতুন অ্যাকাউন্ট তৈরি সফল হয়েছে");
+    if (!error) toast.error("নতুন অ্যাকাউন্ট তৈরি ব্যর্থ হয়েছে");
   };
 
   //sign in with github
   const handleGithubSignIn = async () => {
-    const data = await signIn.social({
+    const { data, error } = await signIn.social({
       provider: "github",
     });
 
     console.log("data of github", data);
+    if (data) toast.success("নতুন অ্যাকাউন্ট তৈরি সফল হয়েছে");
+    if (!error) toast.error("নতুন অ্যাকাউন্ট তৈরি ব্যর্থ হয়েছে");
   };
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f1] px-4 py-8 sm:py-10">
