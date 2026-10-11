@@ -39,8 +39,11 @@ const SignInPage = () => {
     console.log("response in sign-in", resData);
     console.log("Error in sign-in", error);
 
-    if (resData) toast.success("সাইন ইন সফল হয়েছে");
-    if (!error) toast.error("সাইন ইন ব্যর্থ হয়েছে");
+    if (resData) {
+      toast.success("সাইন ইন সফল হয়েছে");
+    } else if (!error) {
+      toast.error("সাইন ইন ব্যর্থ হয়েছে");
+    }
   };
 
   // sign in with google
@@ -50,8 +53,11 @@ const SignInPage = () => {
     });
 
     console.log("data for google sign in", data);
-    if (data) toast.success("সাইন ইন সফল হয়েছে");
-    if (!error) toast.error("সাইন ইন ব্যর্থ হয়েছে");
+    if (data) {
+      toast.success("সাইন ইন সফল হয়েছে");
+    } else if (!error) {
+      toast.error("সাইন ইন ব্যর্থ হয়েছে");
+    }
   };
 
   //sign in with github
@@ -61,8 +67,11 @@ const SignInPage = () => {
     });
 
     console.log("data of github", data);
-    if (data) toast.success("সাইন ইন সফল হয়েছে");
-    if (!error) toast.error("সাইন ইন ব্যর্থ হয়েছে");
+    if (data) {
+      toast.success("সাইন ইন সফল হয়েছে");
+    } else if (!error) {
+      toast.error("সাইন ইন ব্যর্থ হয়েছে");
+    }
   };
 
   return (

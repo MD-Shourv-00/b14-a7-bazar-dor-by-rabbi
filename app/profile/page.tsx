@@ -30,16 +30,22 @@ const ProfilePage = () => {
       name: data.name as string,
     });
 
-    if (resData) toast.success("নাম পরিবর্তন সফল হয়েছে");
-    if (!error) toast.success("নাম পরিবর্তন ব্যর্থ হয়েছে");
+    if (resData) {
+      toast.success("নাম পরিবর্তন সফল হয়েছে");
+    } else if (!error) {
+      toast.success("নাম পরিবর্তন ব্যর্থ হয়েছে");
+    }
   }
 
   const handleSignOut = async () => {
     const { data, error } = await signOut();
     console.log("sign-out data", data);
     console.log("sign-out error", error);
-    if (data) toast.success("LOG OUT সফল হয়েছে");
-    if (!error) toast.success("LOG OUT ব্যর্থ হয়েছে");
+    if (data) {
+      toast.success("LOG OUT সফল হয়েছে");
+    } else if (!error) {
+      toast.success("LOG OUT ব্যর্থ হয়েছে");
+    }
 
     redirect("/");
   };
