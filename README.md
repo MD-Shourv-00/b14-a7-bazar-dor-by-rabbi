@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+\*\*project name: b14-a7-bazar-by-rabbi
 
-## Getting Started
+\*\*description
 
-First, run the development server:
+- this is the project of real time goods price knowing web app. Authorized user can access only main and category page. For profile page, details page user need to sign up or sign in due to manually or google or github account. After sign in or sign up user can update profile and sign out of their account.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\*\*technologies:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- next.js
+- tailwind css
+- heroUI for UI component
+- react hot toast
+- better auth for authentication
+- iconify/react for icon
+- typescript for type
+- app router for better navigation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+\*\*features:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- use proxy.ts for middleman. So that, unauthorized user cannot access profile and detailspage
+- sign in, up , out, profile update, sign in with google or github system
+- sorting system in category page.
+- use not-found.tsx so that showing 404 page for unavailable or wrong route;
+- totaly responsive for any device.
