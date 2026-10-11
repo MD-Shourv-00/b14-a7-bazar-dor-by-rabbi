@@ -11,7 +11,7 @@ const CategoryProductLIst = ({
 }) => {
   const [sortBy, setSortBy] = useState("");
 
-  console.log(sortBy)
+  console.log(sortBy);
 
   const sortedSingleCategoriProduct = [
     ...productDataByCategory,
@@ -80,7 +80,7 @@ const CategoryProductLIst = ({
       </p>
 
       {/* product card */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-3 gap-4 max-lg:grid-cols-2 max-sm:grid-cols-1">
         {sortedSingleCategoriProduct.map(
           (singleProduct: ProductPriceData) => (
             <SingleCategProductCard
